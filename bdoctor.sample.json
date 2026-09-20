@@ -1,0 +1,63 @@
+{
+  "$schema": "https://cloud13.blob.core.windows.net/public/bdoctor/schema/2.4.0.json",
+  "folder": "./src",
+  "url": "https://<tenant>.sharepoint.com/sites/<site>",
+  "library": "Shared Documents",
+
+  "auth": "certificate",
+  "appId": "<appId>",
+  "tenant": "<tenant>",
+
+  "disableComments": false,
+
+  "markdown": {
+    "allowHtml": true,
+    "theme": "Light",
+    "shortcodesFolder": "./shortcodes",
+    "extended": true,
+    "enableMath": true
+  },
+
+  "partials": {
+    "folder": "./partials",
+    "header": "banner",
+    "footer": "navigation"
+  },
+
+  "siteDesign": {
+    "chrome": {
+      "headerLayout": "Compact",
+      "headerEmphasis": "Dark"
+    }
+  },
+
+  "menu": {
+    "QuickLaunch": {
+      "items": [
+        {
+          "id": "bdoctor",
+          "name": "Better Doctor",
+          "url": "",
+          "weight": 2
+        },
+        {
+          "id": "tests",
+          "name": "Test pages",
+          "url": "",
+          "weight": 3
+        }
+      ]
+    }
+  },
+
+  "multilingual": {
+    "enableTranslations": true,
+    "languages": ["nl-nl", "fr-fr", "es-es"],
+    "overwriteTranslationsOnChange": true,
+    "translator": {
+      "key": "",
+      "endpoint": "https://api.cognitive.microsofttranslator.com/",
+      "region": "westeurope"
+    }
+  }
+}

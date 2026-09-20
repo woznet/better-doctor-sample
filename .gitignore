@@ -1,0 +1,12 @@
+bdoctor.json
+dist
+*.log
+.DS_Store
+test
+temp
+
+*.machinetranslated.md
+
+*.pem
+*.pfx
+*.key
