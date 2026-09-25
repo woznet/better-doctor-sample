@@ -25,6 +25,7 @@
   },
 
   "siteDesign": {
+    "theme": "bdoctor-light",
     "chrome": {
       "headerLayout": "Compact",
       "headerEmphasis": "Dark"
