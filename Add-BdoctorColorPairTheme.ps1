@@ -8,9 +8,10 @@ registers them as a tenant theme with Add-SPOTheme -ColorPairs. The theme is an
 alternative to bdoctor-light, not an update of it. Only light mode color pairs are
 supported.
 
-Microsoft documents color pairs for Add-SPOTheme without naming the parameter, and this
-script has not been run against a tenant yet: check Get-Help Add-SPOTheme -Parameter
-ColorPairs in your module version first.
+Add-SPOTheme takes the pairs through -ColorPairs, in its own parameter set next to the
+legacy -Palette and -IsInverted one; module version 16.0.27709.12000 accepts the pairs
+this script builds. The script has not been run against a tenant yet, so run it with
+-WhatIf first.
 
 Connect to the SharePoint admin center with Connect-SPOService before running it.
 

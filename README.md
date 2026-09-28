@@ -101,7 +101,7 @@ Connect-SPOService -Url https://<tenant>-admin.sharepoint.com
 Set `siteDesign.theme` to `bdoctor-light-pairs` to use it. Color pairs support light mode only.
 
 > [!NOTE]
-> The script has not been run against a tenant yet. Microsoft documents registering color pairs with `Add-SPOTheme` but does not name its parameter, so check `Get-Help Add-SPOTheme -Parameter ColorPairs` in your version of the module before relying on it, and check the theme in **Change the look** afterwards.
+> `Add-SPOTheme` takes the pairs through its `-ColorPairs` parameter, in its own parameter set next to the legacy `-Palette` and `-IsInverted` one; version 16.0.27709.12000 of the module accepts the pairs the script builds. The script has not been run against a tenant yet, so run it with `-WhatIf` first and check the theme in **Change the look** afterwards. `Remove-SPOTheme -Identity bdoctor-light-pairs` removes it again.
 
 ## Repository layout
 
