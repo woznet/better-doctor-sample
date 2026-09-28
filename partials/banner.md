@@ -1,1 +1,1 @@
-<callout type="note">This page is published with <a href="https://woznet.github.io/better-doctor/">Better Doctor</a>. Edit the markdown in the sources instead of the SharePoint page, or your changes are overwritten on the next run!</callout>
+<callout type="note">This page is published with <a href="https://better-doctor.cwoz.dev/">Better Doctor</a>. Edit the markdown in the sources instead of the SharePoint page, or your changes are overwritten on the next run!</callout>

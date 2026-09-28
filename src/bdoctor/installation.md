@@ -20,16 +20,16 @@ menu:
 
 Thank you for your interest in `bdoctor`. The following information will help you install it.
 
-Start by installing `bdoctor` as follows via npm:
+`bdoctor` needs **Node.js 22.13.0 or higher**. It is published to GitHub Packages as a private package for now, so npm needs a GitHub token to install it. Create a classic personal access token with the `read:packages` scope, from an account that can read the package, and sign in with it once, using the token as the password:
+
+```bash
+npm login --scope=@woznet --auth-type=legacy --registry=https://npm.pkg.github.com
+```
+
+Then install `bdoctor` via npm:
 
 ```bash
 npm i -g @woznet/better-doctor
-```
-
-If you are using `yarn`, you can do it as follows:
-
-```bash
-yarn global add @woznet/better-doctor
 ```
 
 To try the latest changes before they are released, install the `next` tag instead:
@@ -46,7 +46,9 @@ Installing the CLI is not enough. Pages are rendered by the **Better Doctor Mark
 
 ## Set up authentication
 
-`bdoctor` brings no application of its own, so you bring an Azure Entra ID app registration with the `Sites.FullControl.All` application permission and a certificate. Certificate authentication is the only type `bdoctor` supports.
+`bdoctor` brings no application of its own, so you bring an Azure Entra ID app registration with a certificate. Certificate authentication is the only type `bdoctor` supports. The app needs either the `Sites.FullControl.All` application permission, or `Sites.Selected` with a grant on just the site you publish to.
+
+With `Sites.Selected`, applying a custom tenant theme goes through the tenant admin site, which needs the optional admin app registration described on the [options](./options) page.
 
 ## Try it out
 
