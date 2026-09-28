@@ -17,8 +17,16 @@
   "neutralTertiary": "#c8c8c8",
   "neutralSecondary": "#d0d0d0",
   "neutralPrimaryAlt": "#dadada",
-  "neutralPrimary": "#ffffff",
-  "neutralDark": "#f4f4f4",
-  "black": "#f8f8f8",
-  "white": "#17181c"
+  "neutralPrimary": "#f4f4f4",
+  "neutralDark": "#f8f8f8",
+  "black": "#ffffff",
+  "white": "#17181c",
+  "primaryBackground": "#17181c",
+  "primaryText": "#f4f4f4",
+  "bodyBackground": "#17181c",
+  "bodyText": "#f4f4f4",
+  "disabledBackground": "#27282f",
+  "disabledText": "#5f616b",
+  "error": "#f1707b",
+  "accent": "#24baa4"
 }
