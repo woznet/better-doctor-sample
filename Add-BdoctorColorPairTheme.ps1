@@ -4,9 +4,13 @@ Registers the Better Doctor light theme in the SharePoint 2.0.0 color pair forma
 
 .DESCRIPTION
 Reads the accent and background color pairs from bdoctor-light-color-pairs.json and
-registers them as a tenant theme with Add-SPOTheme -ColorPairs. SharePoint builds the
-theme palette from the first pair, so this theme is an alternative to bdoctor-light,
-not an update of it. Only light mode color pairs are supported.
+registers them as a tenant theme with Add-SPOTheme -ColorPairs. The theme is an
+alternative to bdoctor-light, not an update of it. Only light mode color pairs are
+supported.
+
+Microsoft documents color pairs for Add-SPOTheme without naming the parameter, and this
+script has not been run against a tenant yet: check Get-Help Add-SPOTheme -Parameter
+ColorPairs in your module version first.
 
 Connect to the SharePoint admin center with Connect-SPOService before running it.
 

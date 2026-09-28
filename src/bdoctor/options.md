@@ -34,13 +34,23 @@ Options are specified via command arguments, or within a `bdoctor.json` file (au
 `--certificate <certificate>`
 : The certificate to authenticate with. A value ending in `.pfx`, `.p12` or `.pem` is treated as a file path; anything else is treated as the base64 encoded contents.
 
-`--certificateBase64Encoded <certificate>`
-: The base64 encoded certificate contents. Useful in a pipeline, where the certificate comes from a secret rather than a file.
-
 `--password <password>`
 : The password of your certificate, when it is protected with one.
 
 <callout type="caution">Keep the certificate and its password out of source control. <code>bdoctor init</code> deliberately never writes them to <code>bdoctor.json</code>; pass them on each run, ideally from a pipeline secret.</callout>
+
+### Admin app registration
+
+An app registration with `Sites.Selected` reaches only the sites it was granted, and a few calls go through the tenant admin site instead. These optional options set up a second app registration for those calls. `bdoctor publish` signs in as it only when a task needs it: applying a custom tenant theme with `--applyTheme`, and setting the `siteDesign.logo` when the site refuses the regular app.
+
+`--adminAppId <appId>`
+: The client id of the admin app registration. It signs in to the same `--tenant`. Set it together with `--adminCertificate`; setting only one of them fails the run.
+
+`--adminCertificate <certificate>`
+: The certificate of the admin app registration: a path to a `.pfx`, `.p12` or `.pem` file, or its base64 encoded contents.
+
+`--adminPassword <password>`
+: The password of the admin certificate, when it is protected with one.
 
 ### Content and site
 
@@ -60,6 +70,9 @@ Options are specified via command arguments, or within a `bdoctor.json` file (au
 
 `--overwriteImages`
 : Overwrite the images in the SharePoint library which are referenced by your markdown files.
+
+`--applyTheme`
+: Applies the theme named in `siteDesign.theme`. A custom theme, such as this sample's `bdoctor-light`, has to be registered in the tenant first; `bdoctor` never creates one. Pass it on the runs that should apply the theme rather than on every run.
 
 `--skipPrecheck`
 : Skips the local content validation. It does **not** skip the Better Doctor Markdown availability check, which always runs before a publishing run changes anything.
@@ -102,7 +115,7 @@ You can provide the same flags and values as in the parameters. Be sure to use t
 
 ```json
 {
-  "$schema": "https://cloud13.blob.core.windows.net/public/bdoctor/schema/2.4.0.json",
+  "$schema": "https://cloud13.blob.core.windows.net/public/bdoctor/schema/3.1.0.json",
   "folder": "./src",
   "url": "https://<tenant>.sharepoint.com/sites/<documentation>"
 }
