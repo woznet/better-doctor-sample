@@ -31,6 +31,8 @@ partials:
 ---
 ```
 
+The Dutch translation pages use the same opt-out to swap the English partials for Dutch ones, which the [partials](./partials) page explains.
+
 ## Partials you include yourself still work
 
 The opt-out only applies to the partials `bdoctor` adds to every page. The ones you place yourself are always rendered, which is why the feedback callout below is still here:

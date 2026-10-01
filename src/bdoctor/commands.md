@@ -89,7 +89,7 @@ bdoctor workflow
 
 ### Setup and cleanup
 
-Install and uninstall the `<tab>` autocompletion for your shell.
+Install and uninstall the <keys combo="Tab" /> autocompletion for your shell.
 
 ```bash
 bdoctor setup

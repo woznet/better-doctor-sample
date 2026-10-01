@@ -21,6 +21,8 @@ menu:
 
 `bdoctor` is a bit different: instead of creating HTML files, it creates SharePoint pages.
 
+<include file="publish-flow" />
+
 Pages are rendered by the **Better Doctor Markdown** web part, a custom SPFx control which an administrator deploys to your tenant once. It handles syntax highlighting, code copying, Mermaid diagrams and optional KaTeX math in the browser, so the published page stays a small, sanitized payload rather than a blob of pre-rendered HTML.
 
 Under the hood, the CLI talks to SharePoint through the [CLI for Microsoft 365](https://pnp.github.io/cli-microsoft365/).
