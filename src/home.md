@@ -30,7 +30,10 @@ menu:
     weight: 1
 ---
 
-<p id="logo" style="text-align:center"><img style="height:200px" src="./assets/bdoctor.png" alt="Better Doctor" /></p>
+<!-- Better Doctor Markdown strips inline styles, so the logo is sized with a width attribute:
+     182 of its 1600 x 1763 pixels gives a height of 200. The web part sets height: auto on
+     images, which would override a height attribute. -->
+<img src="./assets/bdoctor.png" alt="Better Doctor" width="182" />
 
 ## Maintain your documentation on SharePoint without pain
 
