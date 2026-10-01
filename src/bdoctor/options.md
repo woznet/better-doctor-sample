@@ -69,7 +69,7 @@ An app registration with `Sites.Selected` reaches only the sites it was granted,
 <callout type="note">The title is a label and a compatibility selector, not proof of ownership. Replacing a built-in Markdown control requires an unambiguous component id and title match, plus an explicit <code>--confirm</code>.</callout>
 
 `--overwriteImages`
-: Overwrite the images in the SharePoint library which are referenced by your markdown files.
+: Upload every image your markdown files reference, replacing the copies already in the SharePoint library. Without it, an image is uploaded when it is missing from the library or when its content changed since `bdoctor` last uploaded it.
 
 `--applyTheme`
 : Applies the theme named in `siteDesign.theme`. A custom theme, such as this sample's `bdoctor-light`, has to be registered in the tenant first; `bdoctor` never creates one. Pass it on the runs that should apply the theme rather than on every run.
@@ -80,6 +80,8 @@ An app registration with `Sites.Selected` reaches only the sites it was granted,
 ### Publish state
 
 `bdoctor` records a fingerprint of every page it published in `.bdoctor/state.json`, inside the library given by `--library`. That state is what lets it skip pages which did not change.
+
+The fingerprint includes the content of the local images a page shows, its header image too. Replace `src/assets/bdoctor.png` and the next run republishes the pages showing it, even though their markdown did not change. The state also records a hash of every image `bdoctor` uploaded, so the changed image replaces the copy in the library without `--overwriteImages`.
 
 `--forceAll`
 : Reprocess every page, ignoring the saved state.

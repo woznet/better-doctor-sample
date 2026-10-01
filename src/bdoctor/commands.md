@@ -47,7 +47,7 @@ A read-only command which compares your local markdown files against the publish
 bdoctor status
 ```
 
-The output groups your pages as **new**, **modified**, **deleted** and **unchanged**. The unchanged ones are only listed when you pass `--verbose`. A translation file (`*.lang.md`) which no source page links to through `localization` is reported as **orphaned**, as it never gets published.
+The output groups your pages as **new**, **modified**, **deleted** and **unchanged**. A page also counts as modified when an image it shows changed. The unchanged ones are only listed when you pass `--verbose`. A translation file (`*.lang.md`) which no source page links to through `localization` is reported as **orphaned**, as it never gets published.
 
 <callout type="note">The command needs the <code>--url</code> option, as argument or in <code>bdoctor.json</code>, because it downloads the state file from your site.</callout>
 
@@ -55,7 +55,7 @@ The output groups your pages as **new**, **modified**, **deleted** and **unchang
 
 The publish command creates your static content in SharePoint. It uploads all referenced images, creates the navigation structure if provided, and publishes the translations after their source pages exist.
 
-Only pages which are new or whose content changed are processed. Pass `--forceAll` to publish everything regardless.
+Only pages which are new or whose content changed are processed, and a changed image counts as a change to every page showing it. Pass `--forceAll` to publish everything regardless.
 
 #### Examples
 

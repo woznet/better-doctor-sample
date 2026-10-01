@@ -108,7 +108,7 @@ Set `siteDesign.theme` to `bdoctor-light-pairs` to use it. Color pairs support l
 | Path | What it holds |
 | --- | --- |
 | `src/` | The Markdown sources which become SharePoint pages. |
-| `src/assets/` | Images referenced by the pages; uploaded to the asset library on publish. |
+| `src/assets/` | Images referenced by the pages; uploaded to the asset library on publish, and uploaded again when they change. |
 | `partials/` | Reusable Markdown snippets, added with `<include file="..." />` or the `partials.header` / `partials.footer` settings. |
 | `shortcodes/` | Custom shortcodes, loaded through `markdown.shortcodesFolder`. |
 | `bdoctor.sample.json` | The configuration to copy to `bdoctor.json`. |
