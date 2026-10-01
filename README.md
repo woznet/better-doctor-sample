@@ -54,7 +54,7 @@ The run creates the following `QuickLaunch` structure on your site:
 
 - **Home** — the landing page, with a custom header image and a Dutch translation.
 - **Better Doctor**
-  - **Documentation** — what the tool does.
+  - **Documentation** — what the tool does, with the publishing flow diagram.
     - **Options** — the command arguments and `bdoctor.json` settings.
     - **Installation** — installing the CLI, with a Dutch translation.
     - **Page creation** — the front matter every page supports.
@@ -66,8 +66,26 @@ The run creates the following `QuickLaunch` structure on your site:
   - **Math** — inline and display KaTeX.
   - **No partials** — the page level opt-out.
   - **Partials** — reusable snippets and their parameters.
-  - **Shortcodes** — callouts, icons, Mermaid and a custom shortcode.
+  - **Shortcodes** — the built-in icons, callouts, Mermaid and table of contents, and the sample's three custom shortcodes.
   - **Special characters** — escaping.
+
+## Partials and shortcodes in this sample
+
+Partials hold reusable content, and shortcodes compute markup in Node at publish time. Each one below is used on real pages, not only on its test page:
+
+| Name | Kind | What it does | Used on |
+| --- | --- | --- | --- |
+| `partials/banner.md` | Header partial | The "edit the sources" note at the top of every page. | Every English page except Home and No partials. |
+| `partials/navigation.md` | Footer partial | The site navigation at the bottom of every page. | Every English page except No partials. |
+| `partials/nl/banner.md`, `partials/nl/navigation.md` | Partials | The Dutch banner and navigation, included by the translation pages, which turn the English ones off. | Both `.nl.lang.md` pages. |
+| `partials/version.md`, `partials/requirements.md` | Partials with parameters | A version callout with defaults, and a requirements list which passes its parameters on to it. | Commands, Math, Documentation, Partials. |
+| `partials/feedback.md` | Partial | A shared feedback callout. | Partials, No partials. |
+| `partials/publish-flow.md`, `partials/render-pipeline.md` | Partials with a shortcode | Mermaid diagrams drawn on more than one page from a single source. | Documentation, Partials, Shortcodes. |
+| `shortcodes/keys.cjs` | Shortcode | `<keys combo="Ctrl+C" />` renders a key combination as `kbd` elements. | Commands, Shortcodes. |
+| `shortcodes/collapse.cjs` | Shortcode | `<collapse title="...">` folds rendered content into a `details` element. | Installation, Shortcodes. |
+| `shortcodes/repo-link.cjs` | Shortcode, before markdown | `<repo-link path="..." />` returns a markdown link to a file in this repository. | Partials, Shortcodes. |
+
+The [Partials](src/tests/partials.md) and [Shortcodes](src/tests/shortcodes.md) pages explain each feature next to its live result.
 
 ## SharePoint themes
 
@@ -109,8 +127,8 @@ Set `siteDesign.theme` to `bdoctor-light-pairs` to use it. Color pairs support l
 | --- | --- |
 | `src/` | The Markdown sources which become SharePoint pages. |
 | `src/assets/` | Images referenced by the pages; uploaded to the asset library on publish, and uploaded again when they change. |
-| `partials/` | Reusable Markdown snippets, added with `<include file="..." />` or the `partials.header` / `partials.footer` settings. |
-| `shortcodes/` | Custom shortcodes, loaded through `markdown.shortcodesFolder`. |
+| `partials/` | Reusable Markdown snippets, added with `<include file="..." />` or the `partials.header` / `partials.footer` settings. `partials/nl/` holds the Dutch ones. |
+| `shortcodes/` | Custom shortcodes, loaded through `markdown.shortcodesFolder`. `shortcodes/lib/` holds a helper they share, which `bdoctor` loads but does not register. |
 | `bdoctor.sample.json` | The configuration to copy to `bdoctor.json`. |
 | `bdoctor-light-theme.json`, `bdoctor-dark-theme.json` | The SharePoint theme palettes named by `siteDesign.theme`. |
 | `bdoctor-light-color-pairs.json`, `Add-BdoctorColorPairTheme.ps1` | The light theme in the 2.0.0 color pair format, and the script which registers it. |

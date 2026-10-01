@@ -32,11 +32,15 @@ Then install `bdoctor` via npm:
 npm i -g @woznet/better-doctor
 ```
 
+<collapse title="Install a pre-release build">
+
 To try the latest changes before they are released, install the `next` tag instead:
 
 ```bash
 npm i -g @woznet/better-doctor@next
 ```
+
+</collapse>
 
 ## Deploy the web part
 

@@ -12,4 +12,4 @@ To follow along, you need:
 - The Better Doctor Markdown web part deployed to your tenant
 - A SharePoint site to publish to
 
-<include file="./version" product="{{product}}" version="{{version}}" type="warning" />
+<include file="./version" product="{{product}}" version="{{version}}" type="caution" />
